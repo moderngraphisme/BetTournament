@@ -6,13 +6,20 @@ class ModernovModel(models.Model):
 
 class Wallet(ModernovModel):
     amount = models.FloatField()
+    def __str__(self):
+        return f"Wallet de valeur : {self.amount}"
 
 class Joueur(ModernovModel):
     mail = models.CharField(max_length=50)
     phone = models.CharField(max_length=50)
-    wallet = models.ForeignKey(Wallet, 
-        on_delete=models.CASCADE
+    wallet = models.OneToOneField(
+        Wallet,
+        on_delete=models.CASCADE,
+        primary_key=False,
     )
+
+    def __str__(self) -> str:
+        return self.mail
 
 class Team(ModernovModel):
     teamName = models.CharField(max_length=50)
@@ -33,13 +40,14 @@ class Team(ModernovModel):
     )
 
     def __str__(self, _display_players = False):
-        out_str = f"{self.teamName}"
+        out_str = f"{self.teamName}<br/>"
         if _display_players:
             out_str += f"<br/>Top : {self.joueurTop}"
             out_str += f"<br/>Jungle : {self.joueurJungle}"
             out_str += f"<br/>Mid : {self.joueurMid}"
             out_str += f"<br/>Adc : {self.joueurAdc}"
             out_str += f"<br/>Support : {self.joueurSupport}"
+        return out_str
 
 class Match(ModernovModel):
     twitch_link = models.CharField(max_length=50)

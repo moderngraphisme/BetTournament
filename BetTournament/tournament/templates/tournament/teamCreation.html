@@ -12,6 +12,7 @@
     <form action='createteam' method="post">
         <!-- Créer methode qui récupère & traite le post en back = fonction dans views -->
         <input type="text" name="teamName" placeholder="Nom de la team"></input>
+        <br/>
         <input type="select">
             <nom>Joueur à inviter</nom>
             <libellé>Quel joueur voulez vous inviter ?</libellé>
@@ -19,6 +20,7 @@
                 <option valeur="{{joueur}}">{{joueur}}</option>
             {% endfor %}
         </input>
+        <br/>
         <input type="submit">Créer la team</input>
     </form>
     <!-- Nom de la team -->

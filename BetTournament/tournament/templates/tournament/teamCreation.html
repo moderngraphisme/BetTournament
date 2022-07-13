@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+{% load static %}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr">
+  <head>
+    <title>Créer Team</title>
+    <!-- CSS CUSTOM -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+    <form action='createteam' method="post">
+        <!-- Créer methode qui récupère & traite le post en back = fonction dans views -->
+        <input type="text" name="teamName" placeholder="Nom de la team"></input>
+        <input type="select">
+            <nom>Joueur à inviter</nom>
+            <libellé>Quel joueur voulez vous inviter ?</libellé>
+            {% for joueur in joueurs %}
+                <option valeur="{{joueur}}">{{joueur}}</option>
+            {% endfor %}
+        </input>
+        <input type="submit">Créer la team</input>
+    </form>
+    <!-- Nom de la team -->
+    <!-- invitation par recherche joueur-->
+    <!-- création lien permettant de s'inscrire/se connecter et rejoindre la team-->
+    {% for team in tournament.match.teamRed %}
+      <p>{{ tournament }}</p>
+    {% endfor %}  
+  </body>
+  <footer>
+    <p>An awesome site made by Hyungoo</p>
+  </footer>
+</html>

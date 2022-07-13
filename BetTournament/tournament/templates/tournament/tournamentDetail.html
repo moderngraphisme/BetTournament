@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr">
+  <head>
+    <title>Bet Tournament</title>
+    <!-- CSS CUSTOM -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+    <h1>{{tournament.name}}</h1>
+    <!-- Contenu de la page respectant la syntaxe XML. -->
+    {% for team in tournament.match.teamRed %}
+        <p>{{ team }}</p>
+    {% endfor %}
+  </body>
+  <footer>
+    <p>An awesome site made by Hyungoo</p>
+  </footer>
+</html>

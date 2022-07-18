@@ -8,9 +8,6 @@ def tournament(request, tournament_id):
 def createTournament(request):
     return
 
-def createTeam(request):
-    return
-
 def teamCreation(request):
     joueurs = Joueur.objects.all()
 
@@ -18,3 +15,9 @@ def teamCreation(request):
     template_path = 'tournament/teamCreation.html'
 
     return render(request, template_path, context)
+
+
+def playerConnection(request):
+    return render(request,'tournament/playerCreate.html')
+
+

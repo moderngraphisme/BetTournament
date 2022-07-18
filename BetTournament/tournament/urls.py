@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from tournament import views
 
+app_name ='tournament'
 urlpatterns = [
     path('tournament/', views.tournament, name='tournament'),
-    path('teamCreation/', views.teamCreation, name='teamCreation')
+    path('teamCreation/', views.teamCreation, name='teamCreation'),
+    path('playerConnection/', views.playerConnection, name='playerConnection'),
 ]

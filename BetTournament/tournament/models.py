@@ -51,6 +51,7 @@ class Team(ModernovModel):
 
 class Match(ModernovModel):
     twitch_link = models.CharField(max_length=50)
+    teamLeader = models.ForeignKey(Joueur, on_delete=models.CASCADE)
     teamRed = models.ForeignKey(Team, 
         on_delete=models.CASCADE, related_name="teamRed"
     )
